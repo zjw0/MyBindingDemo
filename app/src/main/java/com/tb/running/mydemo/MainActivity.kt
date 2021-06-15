@@ -43,11 +43,12 @@ class MainActivity : BaseActivity() {
         //模拟数据
         var list = mutableListOf<InviteActiveBean.RSPDATA.ACTPROS>()
         for(i in 0..4){
+            //节点人数可能不均匀增加，此模拟数据为均为增加
             var number = (i*2+1).toString()
-            list.add(i,InviteActiveBean.RSPDATA.ACTPROS("",number,false))
+            list.add(i,InviteActiveBean.RSPDATA.ACTPROS("https://",number,false))
         }
         var data = InviteActiveBean.RSPDATA(list)
-        var datas = InviteActiveBean("",data,"")
+        var datas = InviteActiveBean("000000",data,"成功")
 
         initActiveData(datas)
     }
@@ -85,7 +86,7 @@ class MainActivity : BaseActivity() {
                     binding.llViewHorImg.addView(imageView)
                     Glide.with(this)
                         .load(GlobalUtil.object2String(bean.rSPDATA.aCTPROS[i].iNVITEIMAGE))
-                        .error(R.mipmap.ic_launcher)
+                        .error(R.mipmap.people)
                         .into(imageView)
                 } else {
                     //动态添加图片
@@ -99,7 +100,7 @@ class MainActivity : BaseActivity() {
                     binding.llViewHorImg.addView(imageView)
                     Glide.with(this)
                         .load(GlobalUtil.object2String(bean.rSPDATA.aCTPROS[i].iNVITEIMAGE))
-                        .error(R.mipmap.ic_launcher)
+                        .error(R.mipmap.people)
                         .into(imageView)
                 }
                 //设置默认进度条结点为灰色
@@ -247,7 +248,7 @@ class MainActivity : BaseActivity() {
                                 )
                             )
                             textInviteSumView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12F)
-                            textInviteSumView.setText(bean.rSPDATA.aCTPROS[i].iNVITENUMBER + "个")
+                            textInviteSumView.setText(bean.rSPDATA.aCTPROS[i].iNVITENUMBER + "人")
                             binding.rlViewHorText.addView(textInviteSumView)
                         }
                     }

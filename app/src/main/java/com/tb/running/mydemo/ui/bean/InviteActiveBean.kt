@@ -15,11 +15,11 @@ data class InviteActiveBean(
         @SerializedName("ACT_PROS")
         var aCTPROS: List<ACTPROS>,
         @SerializedName("BNUM")
-        var bNUM: String = "6", // 6
+        var bNUM: String = "4", // 6
     ) {
         data class ACTPROS(
             @SerializedName("INVITE_IMAGE")
-            var iNVITEIMAGE: String = "", // https://sit-m29bfile.m29mall.com/0000
+            var iNVITEIMAGE: String = "", // https://
             @SerializedName("INVITE_NUMBER")
             var iNVITENUMBER: String = "", // 2
             var isOut: Boolean = false
